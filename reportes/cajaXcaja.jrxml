@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2016-10-10T23:08:17 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cajaXcaja" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="bf20da3c-0e33-44bb-a483-338aa43541d8">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Postgres-PuntoColor"/>
+	<parameter name="IDCAJA" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[select *from v_caja_movimiento WHERE idcaja= $P{IDCAJA} ]]>
+	</queryString>
+	<field name="idcaja" class="java.lang.Integer"/>
+	<field name="ipcaja" class="java.lang.String"/>
+	<field name="estado" class="java.lang.Boolean"/>
+	<field name="detalle" class="java.lang.String"/>
+	<field name="baja" class="java.lang.Boolean"/>
+	<field name="fecha" class="java.sql.Timestamp"/>
+	<field name="valor" class="java.math.BigDecimal"/>
+	<field name="empleado" class="java.lang.String"/>
+	<field name="movimiento" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="70" uuid="58ff3604-de5c-4dc0-be52-b6bf1dbe8430"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["file:/C:/Users/master/JaspersoftWorkspace/MyReports/sub_rep_vert.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="0" width="570" height="40" forecolor="#0D05FC" uuid="11b94711-83b5-47c7-93d4-4a60de1b3cbd"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Caja por Numero de Caja]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="20" uuid="2b5793f5-42ae-4a1c-922e-4995466392f2"/>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IP Caja]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="0" width="90" height="20" uuid="ea7e8ac9-3f4c-4226-8982-c4bab8a0dd17">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nomb.Caja]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="0" width="102" height="20" uuid="931957fc-17d7-4020-9c48-8663783a211d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="0" width="108" height="20" uuid="63d7d782-f65f-4118-a824-9e68f75a1277">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Movimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="381" y="0" width="70" height="20" uuid="c9fa9787-2cdc-4ff1-a3b7-0f29d0776c83"/>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="451" y="0" width="100" height="20" uuid="9009a319-7b97-44c7-b59b-a950a0e3a6a5"/>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="0" y="0" width="80" height="20" uuid="7f304133-61f1-4b68-b767-7938afe24184">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ipcaja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="90" height="20" uuid="be12ad2d-4e19-4c34-a166-c91e03db2c61">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detalle}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yy - hh:mm a">
+				<reportElement x="170" y="0" width="102" height="20" uuid="51246896-6eaa-4f37-83d4-674db2322514"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="0" width="108" height="20" uuid="92f92bf9-d141-4d90-9dd6-2761dcbef54f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{movimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="0" width="58" height="20" uuid="5d68c098-8277-4d8d-8c29-84f746867e43">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="90" height="20" uuid="e6e59f67-4974-4e80-bf79-5f3e1432cb94">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

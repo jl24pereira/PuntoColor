@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-10-04T22:23:55 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="doc_cred_fiscal" pageWidth="525" pageHeight="595" columnWidth="525" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b1049505-3bfb-4734-a164-0c4d0e8d3326">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Postgres-PuntoColor"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<property name="ireport.zoom" value="1.4641000000000015"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="240"/>
+	<subDataset name="datasetdetalle" uuid="206372d5-d6c3-4831-9c3e-36952208dba9">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Postgres-PuntoColor"/>
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<parameter name="IDEVENTA" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[select
+*
+from
+v_detalle_factura
+where idventa= $P{IDEVENTA} ]]>
+		</queryString>
+		<field name="idventa" class="java.lang.Integer"/>
+		<field name="numerofactura" class="java.lang.String"/>
+		<field name="codigoproducto" class="java.lang.String"/>
+		<field name="nombreproducto" class="java.lang.String"/>
+		<field name="cantidad" class="java.lang.Integer"/>
+		<field name="preciounitario" class="java.math.BigDecimal"/>
+		<field name="ventagravada" class="java.math.BigDecimal"/>
+	</subDataset>
+	<parameter name="IDVENTA" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select
+*
+from
+v_consumfinal
+where idventa =  $P{IDVENTA}]]>
+	</queryString>
+	<field name="idventa" class="java.lang.Integer"/>
+	<field name="numerofactura" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="ventatotal" class="java.math.BigDecimal"/>
+	<field name="enletras" class="java.lang.String"/>
+	<background>
+		<band height="556" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="25" y="465" width="272" height="41" uuid="c8ca5e34-39e6-49f2-b772-6a4202191dda"/>
+				<textFieldExpression><![CDATA[$F{enletras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="377" y="541" width="40" height="15" uuid="be841202-4c36-4f46-af29-768b9ac7e906"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventatotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="365" y="465" width="12" height="15" uuid="af735fe5-affd-41d3-a3e0-96b803b98d48"/>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="541" width="12" height="15" uuid="78cf024e-a326-4e3c-86ef-9beb3fa314ba"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="377" y="465" width="40" height="15" uuid="45bf8a4b-4f2b-43a8-8ba5-5b08ae6f2921"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventatotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</background>
+	<title>
+		<band height="274" splitType="Stretch">
+			<textField>
+				<reportElement x="313" y="52" width="64" height="15" uuid="e5f50a4f-31b9-4b14-9d6f-85b7af0014dc"/>
+				<textFieldExpression><![CDATA[$F{idventa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="155" width="200" height="15" uuid="990171ba-dbbe-483e-bfad-a066ceccfe4c"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="168" width="200" height="15" uuid="35baeb70-cfa9-492c-b751-98f11583b6e7"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yy">
+				<reportElement x="313" y="155" width="100" height="15" uuid="e14202ca-c2d8-45d3-acdb-643bbbdb0efc"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="2" y="229" width="450" height="34" uuid="a32c3903-c4db-4a99-9d36-86dead9781ef"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="datasetdetalle" uuid="1b773b55-448f-4248-96e5-c21643caee51">
+						<datasetParameter name="IDEVENTA">
+							<datasetParameterExpression><![CDATA[$P{IDVENTA}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="34" width="450">
+						<textField>
+							<reportElement x="68" y="5" width="42" height="18" uuid="f6b53805-3541-44b0-adc6-37aa43401ef9"/>
+							<textFieldExpression><![CDATA[$F{codigoproducto}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="110" y="5" width="157" height="18" uuid="90a4a96c-a323-4f7f-a82f-0dc7eacde1d9"/>
+							<textFieldExpression><![CDATA[$F{nombreproducto}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="30" y="5" width="30" height="18" uuid="205d623f-ec12-404d-ba68-d7609d01782c"/>
+							<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="267" y="5" width="43" height="18" uuid="2a229a1e-3fce-4d90-9458-1eea19c0bed0"/>
+							<textFieldExpression><![CDATA[$F{preciounitario}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="378" y="5" width="42" height="18" uuid="8ddb8203-0ccb-4e01-bac9-cc84d4948b47"/>
+							<textFieldExpression><![CDATA[$F{ventagravada}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</title>
+	<detail>
+		<band height="40" splitType="Stretch"/>
+	</detail>
+</jasperReport>

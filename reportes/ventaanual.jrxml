@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ventaanual" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b0bb74ae-ab57-4fdb-90c5-bf78b6adf1ae">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Postgres-PuntoColor"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset1" uuid="83fe977e-725b-434c-b53c-a59b6f831650">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Postgres-PuntoColor"/>
+		<parameter name="ANIO" class="java.lang.String">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+		</parameter>
+		<queryString>
+			<![CDATA[select 1 as n,'Enero' as mes, COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-01-01' ))) and  (date (concat( $P{ANIO},'-01-31' )))
+union
+select 2,'Febrero',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-02-01' ))) and (date (concat( $P{ANIO},'-02-28' )))
+union
+select 3,'Marzo', COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-03-01' ))) and (date (concat( $P{ANIO},'-03-31' )))
+union
+select 4,'Abril', COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-04-01' ))) and (date (concat( $P{ANIO},'-04-30' )))
+union
+select 5,'Mayo',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-05-01' ))) and (date (concat( $P{ANIO},'-05-31' )))
+union
+select 6,'Junio',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-06-01' ))) and (date (concat( $P{ANIO},'-06-30' )))
+union
+select 7,'Julio',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-07-01' ))) and (date (concat( $P{ANIO},'-07-31' )))
+union
+select 8,'Agosto',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-08-01' ))) and (date (concat( $P{ANIO},'-08-31' )))
+union
+select 9,'Septiembre',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-09-01' ))) and (date (concat( $P{ANIO},'-09-30' )))
+union
+select 10,'Octubre',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-10-01' ))) and (date (concat( $P{ANIO},'-10-31' )))
+union
+select 11,'Noviembre',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-11-01' ))) and (date (concat( $P{ANIO},'-11-30' )))
+union
+select 12,'Diciembre',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-12-01' ))) and (date (concat( $P{ANIO},'-12-31' )))
+order by n]]>
+		</queryString>
+		<field name="n" class="java.lang.Integer"/>
+		<field name="mes" class="java.lang.String"/>
+		<field name="total" class="java.math.BigDecimal"/>
+		<variable name="total1" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{total}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="ANIO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1 as n,'Enero' as mes, COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-01-01' ))) and  (date (concat( $P{ANIO},'-01-31' )))
+union
+select 2,'Febrero',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-02-01' ))) and (date (concat( $P{ANIO},'-02-28' )))
+union
+select 3,'Marzo', COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-03-01' ))) and (date (concat( $P{ANIO},'-03-31' )))
+union
+select 4,'Abril', COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-04-01' ))) and (date (concat( $P{ANIO},'-04-30' )))
+union
+select 5,'Mayo',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-05-01' ))) and (date (concat( $P{ANIO},'-05-31' )))
+union
+select 6,'Junio',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-06-01' ))) and (date (concat( $P{ANIO},'-06-30' )))
+union
+select 7,'Julio',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-07-01' ))) and (date (concat( $P{ANIO},'-07-31' )))
+union
+select 8,'Agosto',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-08-01' ))) and (date (concat( $P{ANIO},'-08-31' )))
+union
+select 9,'Septiembre',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-09-01' ))) and (date (concat( $P{ANIO},'-09-30' )))
+union
+select 10,'Octubre',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-10-01' ))) and (date (concat( $P{ANIO},'-10-31' )))
+union
+select 11,'Noviembre',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-11-01' ))) and (date (concat( $P{ANIO},'-11-30' )))
+union
+select 12,'Diciembre',COALESCE(SUM(total),0) AS total from venta where fecha between (date (concat( $P{ANIO},'-12-01' ))) and (date (concat( $P{ANIO},'-12-31' )))
+order by n]]>
+	</queryString>
+	<field name="n" class="java.lang.Integer"/>
+	<field name="mes" class="java.lang.String"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<background>
+		<band height="572" splitType="Stretch">
+			<bar3DChart>
+				<chart evaluationTime="Report" theme="generic">
+					<reportElement x="10" y="150" width="530" height="300" uuid="a7decf62-d5b7-4fd2-ab3f-de996b82ad03"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{mes}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{total}]]></valueExpression>
+						<labelExpression><![CDATA[$F{mes}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot labelRotation="0.0">
+						<seriesColor seriesOrder="0" color="#656099"/>
+						<seriesColor seriesOrder="1" color="#E64619"/>
+						<seriesColor seriesOrder="2" color="#0F30F2"/>
+						<seriesColor seriesOrder="3" color="#C04D9D"/>
+						<seriesColor seriesOrder="4" color="#6ED986"/>
+						<seriesColor seriesOrder="5" color="#01D4E8"/>
+						<seriesColor seriesOrder="6" color="#EA8C78"/>
+						<seriesColor seriesOrder="7" color="#7F2399"/>
+						<seriesColor seriesOrder="8" color="#2E78EF"/>
+						<seriesColor seriesOrder="9" color="#89BB43"/>
+						<seriesColor seriesOrder="10" color="#649293"/>
+						<seriesColor seriesOrder="11" color="#8B7F9B"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisFormat labelRotation="0.0">
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+			<componentElement>
+				<reportElement x="550" y="160" width="200" height="200" uuid="f0773b17-4031-4f3e-a397-a2dd63dabbab">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="43507f90-bb45-4f0f-9dc8-43ef461d0502">
+						<datasetParameter name="ANIO">
+							<datasetParameterExpression><![CDATA[$P{ANIO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="100" uuid="34331f20-f416-4a17-84d7-6f04a6fad80e">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableFooter style="Table_TH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="20" uuid="43dcbd09-1fdf-446e-987d-5ffc5eb6748d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total en Reporte]]></text>
+							</staticText>
+						</jr:tableFooter>
+						<jr:columnHeader style="Table_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="20" uuid="a4b617eb-7998-4f61-8b52-c2738982337b">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Mes]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="20" uuid="91cb6b30-2ed3-4c11-84c6-e4032e013c63"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="8e652d05-2705-432e-9a69-f5bd110b447d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableFooter style="Table_TH" height="20">
+							<textField>
+								<reportElement x="25" y="0" width="65" height="20" uuid="d9ec93b8-b579-426e-bafb-4f85d22fc131"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{total1}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="0" width="25" height="20" uuid="78761e95-074e-4665-ae05-49f4c4f5f507"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[$]]></text>
+							</staticText>
+						</jr:tableFooter>
+						<jr:columnHeader style="Table_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="20" uuid="71047b71-e079-4811-83ee-098e8c8a75c7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField>
+								<reportElement x="25" y="0" width="65" height="20" uuid="9cb7ab4d-a845-46fc-bab4-f51d7fdd8829"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="10"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="0" width="25" height="20" uuid="9ae199d6-fff9-496a-84b0-ad474466b8e9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10"/>
+								</textElement>
+								<text><![CDATA[$]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="490" width="750" height="30" uuid="f655a760-1cf3-452f-be86-f45da1fab807"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<subreport>
+				<reportElement x="20" y="0" width="670" height="46" uuid="67fa4626-4ef1-4bb2-b131-adf77fae7810"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["sub_rep_horiz.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="10" y="-2" width="680" height="50" uuid="5a9a050c-0399-4539-8491-3e73e604bb31"/>
+				<textElement textAlignment="Center">
+					<font size="34" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ventas Anuales]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="490" y="-1" width="150" height="48" uuid="e47dd241-5f5c-41de-b9ab-740aace3e7ed">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="34" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ANIO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

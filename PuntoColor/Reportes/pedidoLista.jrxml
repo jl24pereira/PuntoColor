@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-10-03T22:32:49 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep_pedido" pageWidth="378" pageHeight="612" whenNoDataType="AllSectionsNoDetail" columnWidth="338" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="5" uuid="0e2e27a2-eecd-4478-809b-7194ccf307d1">
+	<property name="ireport.zoom" value="2.5937424601000023"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="696"/>
+	<subDataset name="dataset1" uuid="d4ab9161-7dda-4a6f-97a3-cd31d83c72c2">
+		<parameter name="NUMEROPEDIDO" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[SELECT * FROM V_DETALLE_PEDIDO WHERE idpedido =$P{NUMEROPEDIDO}]]>
+		</queryString>
+		<field name="idpedido" class="java.lang.Integer"/>
+		<field name="numero" class="java.lang.String"/>
+		<field name="nombre" class="java.lang.String"/>
+		<field name="cantidad" class="java.lang.Integer"/>
+		<field name="precio" class="java.math.BigDecimal"/>
+		<field name="subtotal" class="java.math.BigDecimal"/>
+		<field name="tamanio" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="NUMPEDIDO" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+*
+FROM v_pedidos
+WHERE idpedido = $P{NUMPEDIDO}]]>
+	</queryString>
+	<field name="idpedido" class="java.lang.Integer"/>
+	<field name="numero" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="idcliente" class="java.lang.Integer"/>
+	<field name="nombrecliente" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="categoria" class="java.lang.String"/>
+	<field name="pagado" class="java.math.BigDecimal"/>
+	<field name="debe" class="java.math.BigDecimal"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<field name="idempleado" class="java.lang.Integer"/>
+	<field name="nombreempleado" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="comentarios" class="java.lang.String"/>
+	<title>
+		<band height="283">
+			<textField>
+				<reportElement x="63" y="161" width="239" height="15" uuid="9956252f-d2c6-49f0-a2f7-ea29784ac5f6"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrecliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="191" width="100" height="15" uuid="f48834bc-a26e-4831-9d03-3c96bdd87ee2"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="191" width="100" height="15" uuid="fb9ccd65-c794-4929-b8a7-d1408858bc48"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$  #,##0.00">
+				<reportElement x="63" y="217" width="88" height="15" uuid="bb23dd38-80b8-41a6-94aa-119e5f622f59"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$  #,##0.00">
+				<reportElement x="162" y="217" width="84" height="15" uuid="2d74e79c-88aa-4bff-a1d0-c20a744ce765"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pagado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$  #,##0.00">
+				<reportElement x="262" y="217" width="64" height="15" uuid="92587b9f-4b18-4fa3-b838-0a4a6cf69287"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{debe}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MM-yyyy">
+				<reportElement x="231" y="93" width="100" height="15" uuid="52896766-680b-4368-83d9-5d1584da75bf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="44">
+			<textField>
+				<reportElement x="15" y="12" width="241" height="15" uuid="a975d8e0-1396-4e88-a678-0dba305031a0"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrecliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="12" width="75" height="15" uuid="15c9d775-1eef-4244-b4e2-0f839c70bd0c"/>
+				<textElement>
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="28" width="31" height="15" uuid="eb4353b7-1dcd-481e-8603-ac51f32b4821"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<text><![CDATA[Cant.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="29" width="205" height="15" uuid="b2da7272-1fcf-48ea-b18a-80683cf18b53"/>
+				<textElement textAlignment="Center">
+					<font fontName="Consolas"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="29" width="49" height="15" uuid="eb58a1f4-97ed-49a3-ae54-6c6c62d6e57e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Consolas"/>
+				</textElement>
+				<text><![CDATA[Tamaño]]></text>
+			</staticText>
+			<line>
+				<reportElement x="5" y="42" width="326" height="1" uuid="c1c1cc95-3880-48c6-a43e-ec14b66683a2"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26">
+			<componentElement>
+				<reportElement x="2" y="1" width="329" height="16" uuid="3987e142-2b87-49b9-acb5-5667fffeed9a"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="d4b2a84e-4adb-47b3-979b-defb6ab35300">
+						<datasetParameter name="NUMEROPEDIDO">
+							<datasetParameterExpression><![CDATA[$F{idpedido}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="16" width="329">
+						<textField>
+							<reportElement x="44" y="1" width="210" height="15" uuid="11364713-f9c1-44e6-961e-3440fd3f6341"/>
+							<textElement>
+								<font fontName="Consolas"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="13" y="0" width="31" height="15" uuid="5a5194dc-f5a4-482e-b890-aa47bc26a808"/>
+							<textElement>
+								<font fontName="Consolas"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="275" y="0" width="54" height="15" uuid="661f53de-a51b-460a-837a-604147690e5e"/>
+							<textElement>
+								<font fontName="Consolas"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{tamanio}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<summary>
+		<band height="95">
+			<staticText>
+				<reportElement x="5" y="3" width="333" height="15" uuid="fe8e023c-4e27-4a0f-895a-dfc9925724da"/>
+				<textElement textAlignment="Center">
+					<font fontName="Consolas" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Especificaciones / Detalles]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="15" y="28" width="311" height="53" uuid="831e915e-231a-45e1-a875-afa3007567d7"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comentarios}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

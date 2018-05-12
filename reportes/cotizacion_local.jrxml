@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cotizacion_local" pageWidth="396" pageHeight="612" whenNoDataType="AllSectionsNoDetail" columnWidth="396" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="031ae48a-34b1-42c5-b643-1816d61a3c5b">
+	<property name="ireport.zoom" value="2.1435888100000025"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="51"/>
+	<subDataset name="dataset1" uuid="c9e70941-2c2f-4455-a2c6-141800c2fff2">
+		<parameter name="NUMERO" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[select * from v_detalle_cotizacion]]>
+		</queryString>
+		<field name="numero" class="java.lang.String"/>
+		<field name="codigo" class="java.lang.String"/>
+		<field name="nombre" class="java.lang.String"/>
+		<field name="cantidad" class="java.lang.Integer"/>
+		<field name="precio" class="java.math.BigDecimal"/>
+		<field name="subtotal" class="java.math.BigDecimal"/>
+		<field name="tamanio" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="NUMERO" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select * from v_cotizacion
+where idcotizacion= $P{NUMERO}]]>
+	</queryString>
+	<field name="idcotizacion" class="java.lang.Integer"/>
+	<field name="numero" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="idcliente" class="java.lang.Integer"/>
+	<field name="nombrecliente" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<field name="enletras" class="java.lang.String"/>
+	<field name="validapor" class="java.lang.Integer"/>
+	<field name="propietario" class="java.lang.String"/>
+	<field name="firma" class="java.lang.Object"/>
+	<field name="sello" class="java.lang.Object"/>
+	<field name="vencimiento" class="java.sql.Date"/>
+	<background>
+		<band height="612" splitType="Stretch">
+			<textField>
+				<reportElement x="60" y="412" width="196" height="15" uuid="5d22ef72-fd11-453a-9e37-ce51e52c7e59"/>
+				<textFieldExpression><![CDATA[$F{enletras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="451" width="100" height="15" uuid="ed794da3-bc84-4057-ab75-f4f3493b8dc4"/>
+				<textFieldExpression><![CDATA[$F{validapor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="561" width="169" height="15" uuid="0e62b063-e964-4eec-b3b8-3adc9da53d8f"/>
+				<textFieldExpression><![CDATA[$F{propietario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="561" width="100" height="15" uuid="78b89f78-4f75-440c-9907-1466c06e4828"/>
+				<textFieldExpression><![CDATA[$F{nombrecliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="393" width="51" height="15" uuid="b2cb10f2-e9c7-4a3c-922d-59bf9242fe8d"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</background>
+	<title>
+		<band height="143" splitType="Stretch">
+			<textField pattern="dd-MMM-yy">
+				<reportElement x="255" y="76" width="100" height="15" uuid="ed39f605-25e3-45cd-959f-3bdd496595af"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="72" y="111" width="179" height="15" uuid="a2a07c9f-2ace-44fd-923a-faa20de75c61"/>
+				<text><![CDATA[--]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="255" y="49" width="50" height="15" uuid="a2eb5ac4-a7ce-4c75-9eac-875231bac809"/>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="91" width="179" height="15" uuid="a362aca5-70ef-47ea-8097-a72a9d9818db"/>
+				<textFieldExpression><![CDATA[$F{nombrecliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="126" width="179" height="15" uuid="be72b880-4db6-457e-9d7a-7aed7b0a7bae"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="111" width="100" height="15" uuid="2c1ad061-e720-43b5-9721-539ed59766c3"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="18" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<componentElement>
+				<reportElement x="23" y="0" width="366" height="21" uuid="b3c51ef0-8223-41b0-9bd6-62bbb2716201"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="54772e0b-f14e-4c4c-b356-5b18c38c237c">
+						<datasetParameter name="NUMERO">
+							<datasetParameterExpression><![CDATA[$F{idcotizacion}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="21" width="366">
+						<textField>
+							<reportElement x="0" y="0" width="37" height="15" uuid="b3e77bd7-2d02-4851-9b26-ed65b631bc8d"/>
+							<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="49" y="0" width="49" height="15" uuid="f1bbaab4-6d8e-4c66-b690-94fe1588c3dd"/>
+							<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="98" y="0" width="145" height="15" uuid="bcc83298-bd64-445d-acc4-ea842625efd2"/>
+							<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="246" y="0" width="52" height="15" uuid="65a18329-b5ad-486c-94c5-94790015c9f5"/>
+							<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="304" y="0" width="62" height="15" uuid="d5badce4-f209-40b3-bf9e-f8d0b46f4cd0"/>
+							<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep_proveedores" pageWidth="540" pageHeight="115" whenNoDataType="AllSectionsNoDetail" columnWidth="540" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1529355b-87a5-4dca-8c49-384ace342b03">
+	<property name="ireport.zoom" value="1.3310000000000044"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Postgres-PuntoColor"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="inch"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select  * from empresa]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="propietario" class="java.lang.String"/>
+	<field name="giro" class="java.lang.String"/>
+	<field name="nrc" class="java.lang.String"/>
+	<field name="nit" class="java.lang.String"/>
+	<field name="iva" class="java.math.BigDecimal"/>
+	<field name="conversion" class="java.math.BigDecimal"/>
+	<field name="horassemana" class="java.lang.Integer"/>
+	<field name="logo" class="java.awt.Image"/>
+	<field name="telefono" class="java.lang.String"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+	</group>
+	<title>
+		<band height="115" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="inch"/>
+			<rectangle radius="10">
+				<reportElement x="4" y="2" width="532" height="108" uuid="98035d68-5965-4e82-a881-e83e7a89b6cb">
+					<property name="com.jaspersoft.studio.unit.height" value="inch"/>
+				</reportElement>
+			</rectangle>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="13" y="6" width="167" height="100" uuid="51a2aec1-7294-48ab-88aa-3bb371d496d3">
+					<property name="com.jaspersoft.studio.unit.height" value="inch"/>
+				</reportElement>
+				<imageExpression><![CDATA[$F{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="4" y="34" width="533" height="18" uuid="37bf802b-cb56-4574-814c-255c3b2d154a"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="52" width="533" height="14" uuid="e6730a01-c18c-4b8e-943a-5e692ea53e1f">
+					<property name="com.jaspersoft.studio.unit.y" value="inch"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="66" width="533" height="14" uuid="be3462ce-b1d6-49bd-9786-bc1bd3a9b361"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="80" width="533" height="14" uuid="b072a6c2-b7af-49fc-ae9e-d509467de33b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{propietario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="95" width="523" height="13" uuid="3c535402-4cb8-4e28-8800-31911f7a38db">
+					<property name="com.jaspersoft.studio.unit.y" value="inch"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>
