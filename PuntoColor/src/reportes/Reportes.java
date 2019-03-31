@@ -470,4 +470,21 @@ public class Reportes {
             Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static void reporteCuentasCobrar(){
+        try {
+            JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile("Reportes\\cuentasXCobrar.jasper");
+            Map valores = new HashMap();
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, valores, database.getConexion());
+            //JasperPrintManager.printReport(jasperPrint, false);
+            JasperViewer viewer = new JasperViewer(jasperPrint,false);
+            viewer.setTitle("Reporte de Cuentas Por Cobrar");
+            //viewer.setDefaultCloseOperation();
+            viewer.setSize(950, 600);
+            viewer.setVisible(true);            
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
 }

@@ -169,6 +169,7 @@ public class Principal extends javax.swing.JFrame {
         itemVtasAnual = new javax.swing.JMenuItem();
         itemVtasxCliente = new javax.swing.JMenuItem();
         itemVtasxRango = new javax.swing.JMenuItem();
+        itemCtasCobrar = new javax.swing.JMenuItem();
         mAyuda = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         itemDocumentacion = new javax.swing.JMenuItem();
@@ -645,6 +646,16 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu2.add(jMenu7);
 
+        itemCtasCobrar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        itemCtasCobrar.setText("Cuentas Por Cobrar");
+        itemCtasCobrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCtasCobrarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itemCtasCobrar);
+        itemCtasCobrar.setEnabled(permisos.isREPORTES());
+
         mAdmon.add(jMenu2);
 
         Menu.add(mAdmon);
@@ -1020,6 +1031,11 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void itemCtasCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCtasCobrarActionPerformed
+        // TODO add your handling code here:
+        Reportes.Reportes.reporteCuentasCobrar();
+    }//GEN-LAST:event_itemCtasCobrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar Menu;
     private javax.swing.JMenuItem itemCajas;
@@ -1035,6 +1051,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemCotxCliente;
     private javax.swing.JMenuItem itemCotxRango;
     private javax.swing.JMenuItem itemCreditoFiscal;
+    private javax.swing.JMenuItem itemCtasCobrar;
     private javax.swing.JMenuItem itemDisenio;
     private javax.swing.JMenuItem itemDocumentacion;
     private javax.swing.JMenuItem itemEmpleados;
