@@ -253,9 +253,6 @@ public class PanelFacturas extends AnimatedPanel {
             cBtnOver,
             cBtnPress
         ));
-        if(lProveedores.getModel().getSize()==0){
-            btnAgregarFactura.setEnabled(false);
-        }
         toolBarTabla1.add(jSeparator3);
 
         btnReporte.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -276,9 +273,6 @@ public class PanelFacturas extends AnimatedPanel {
             cBtnOver,
             cBtnPress
         ));
-        if(lProveedores.getModel().getSize()==0){
-            btnReporte.setEnabled(false);
-        }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -628,6 +622,8 @@ public class PanelFacturas extends AnimatedPanel {
         }    
         if(modelo.getSize()>0){
             lProveedores.setSelectedIndex(0);
+        }else{
+            btnReporte.setEnabled(false);
         }
     }
     

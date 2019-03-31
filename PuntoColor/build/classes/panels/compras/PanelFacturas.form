@@ -288,7 +288,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarFacturaActionPerformed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnAgregarFactura.setUI(new ButtonUI(&#xa;                cBtnNormal, &#xa;                cBtnOver, &#xa;                cBtnPress&#xa;        ));&#xa;if(lProveedores.getModel().getSize()==0){&#xa;    btnAgregarFactura.setEnabled(false);&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnAgregarFactura.setUI(new ButtonUI(&#xa;                cBtnNormal, &#xa;                cBtnOver, &#xa;                cBtnPress&#xa;        ));"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JToolBar$Separator" name="jSeparator3">
@@ -313,7 +313,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReporteActionPerformed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnReporte.setUI(new ButtonUI(&#xa;                cBtnNormal, &#xa;                cBtnOver, &#xa;                cBtnPress&#xa;        ));&#xa;if(lProveedores.getModel().getSize()==0){&#xa;    btnReporte.setEnabled(false);&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnReporte.setUI(new ButtonUI(&#xa;                cBtnNormal, &#xa;                cBtnOver, &#xa;                cBtnPress&#xa;        ));"/>
               </AuxValues>
             </Component>
           </SubComponents>
