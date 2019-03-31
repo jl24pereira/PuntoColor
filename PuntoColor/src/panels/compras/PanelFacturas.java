@@ -622,8 +622,11 @@ public class PanelFacturas extends AnimatedPanel {
         }    
         if(modelo.getSize()>0){
             lProveedores.setSelectedIndex(0);
+            btnReporte.setEnabled(true);
+            btnAgregarFactura.setEnabled(true);
         }else{
             btnReporte.setEnabled(false);
+            btnAgregarFactura.setEnabled(false);
         }
     }
     
