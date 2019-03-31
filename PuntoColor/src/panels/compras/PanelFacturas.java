@@ -253,6 +253,9 @@ public class PanelFacturas extends AnimatedPanel {
             cBtnOver,
             cBtnPress
         ));
+        if(lProveedores.getModel().getSize()==0){
+            btnAgregarFactura.setEnabled(false);
+        }
         toolBarTabla1.add(jSeparator3);
 
         btnReporte.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -273,6 +276,9 @@ public class PanelFacturas extends AnimatedPanel {
             cBtnOver,
             cBtnPress
         ));
+        if(lProveedores.getModel().getSize()==0){
+            btnReporte.setEnabled(false);
+        }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -641,13 +647,20 @@ public class PanelFacturas extends AnimatedPanel {
                 V_COMPRAS.PENDIENTE,
                 V_COMPRAS.PAGADO);
         Condition rangoFecha;
-        Condition proveedor = V_COMPRAS.IDPROVEEDOR.equal(lProveedores.getSelectedValue().getId());
+        Condition proveedor = null;
+        if(lProveedores.getSelectedValue()!=null){
+            proveedor = V_COMPRAS.IDPROVEEDOR.equal(lProveedores.getSelectedValue().getId());
+        }        
         Date dateInicio = txtFechaInicial.getDate();
         java.sql.Date fechaInicio = new java.sql.Date (dateInicio.getTime());
         Date dateFin = txtFechaFinal.getDate();
         java.sql.Date fechaFin = new java.sql.Date (dateFin.getTime());
         rangoFecha = V_COMPRAS.FECHA.between(fechaInicio, fechaFin);
-        query.addConditions(proveedor.and(rangoFecha));
+        if(lProveedores.getSelectedValue()!=null){
+            query.addConditions(proveedor.and(rangoFecha));
+        }else{
+            query.addConditions(rangoFecha);
+        }
         Result<Record> result = query.fetch();
         for (Record r : result){
             Object[] row = r.intoArray();
