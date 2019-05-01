@@ -83,6 +83,7 @@ public class DialogMateriaPrima extends javax.swing.JDialog {
         cargarCategoria();
         cargarMedidas();
         initComponents();
+        this.cbxCategoria.setEnabled(nuevo);
         this.setLocationRelativeTo(null);
         this.setTitle(titulo);
         cargarForm(idmaterial);
