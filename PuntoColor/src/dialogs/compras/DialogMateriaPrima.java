@@ -653,8 +653,7 @@ public class DialogMateriaPrima extends javax.swing.JDialog {
                 .fetchOne();
         txtNombre.setText(r.getValue(INVENTARIO.NOMBRE));
         txtDescripcion.setText(r.getValue(INVENTARIO.DESCRIPCION));
-        this.CODIGOP = r.getValue(INVENTARIO.CODIGO);
-        lblCodigo.setText(CODIGOP);
+        this.CODIGOP = r.getValue(INVENTARIO.CODIGO);        
         for(int i=0; i<cbxCategoria.getItemCount(); i++){
             cbxCategoria.setSelectedIndex(i);
             CategoriaInventario cat = (CategoriaInventario) cbxCategoria.getSelectedItem();
@@ -681,6 +680,7 @@ public class DialogMateriaPrima extends javax.swing.JDialog {
         spMin.setValue(r.getValue(INVENTARIO.MINIMO));
         spMax.setValue(r.getValue(INVENTARIO.MAXIMO));
         spExist.setValue(r.getValue(INVENTARIO.EXISTENCIA));
+        lblCodigo.setText(CODIGOP);
     }
     
     private int guardarCompra(){
