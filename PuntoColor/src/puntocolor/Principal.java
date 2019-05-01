@@ -1032,9 +1032,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void itemCtasCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCtasCobrarActionPerformed
-        // TODO add your handling code here:
-        new Mensajes().mensajeAlert("Reporte no disponible!");
-        //Reportes.Reportes.reporteCuentasCobrar();
+        // TODO add your handling code here:        
+        Reportes.Reportes.reporteCuentasCobrar();
     }//GEN-LAST:event_itemCtasCobrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

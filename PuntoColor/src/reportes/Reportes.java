@@ -1,6 +1,7 @@
 
 package Reportes;
 
+import clases.Mensajes;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
@@ -466,8 +467,9 @@ public class Reportes {
             viewer.setSize(950, 600);
             viewer.setVisible(true);            
             //viewer
-        } catch (JRException ex) {
+        } catch (JRException ex) {            
             Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error con reporte");   
         }
     }
     
@@ -484,6 +486,7 @@ public class Reportes {
             viewer.setVisible(true);            
             
         } catch (JRException ex) {
+            new Mensajes().mensajeAlert("Reporte no disponible!");
             Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
