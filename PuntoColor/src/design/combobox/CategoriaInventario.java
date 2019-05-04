@@ -35,7 +35,7 @@ public class CategoriaInventario {
             String ultimo = create.select(INVENTARIO.CODIGO)
                     .from(INVENTARIO)
                     .where(INVENTARIO.CODIGO.like("%"+codigo+"%"))
-                    .orderBy(INVENTARIO.CODIGO.desc())
+                    .orderBy(INVENTARIO.IDINVENTARIO.desc())
                     .limit(1)
                     .fetchOne(0,String.class);
             String toInteger = "";
@@ -48,7 +48,7 @@ public class CategoriaInventario {
                 codigo = codigo + "000" + correlativo;
             }else if(correlativo <100){
                 codigo = codigo + "00" + correlativo;
-            }else if(correlativo <100){
+            }else if(correlativo <1000){
                 codigo = codigo + "0" + correlativo;
             }else{
                 codigo = codigo + correlativo;
